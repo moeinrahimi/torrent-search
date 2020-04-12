@@ -31,7 +31,7 @@
       methods:{
         search:async function(){
           let {q} = this
-          let a = await fetch('http://127.0.0.1:8085/search?q='+q)
+          let a = await fetch('/search?q='+q)
           a= await a.json()
           console.log("search -> a",a)
           this.results=a
