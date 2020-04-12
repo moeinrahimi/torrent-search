@@ -1,7 +1,13 @@
-const app = require('express')()
-app.listen(8085,'0.0.0.0',()=>console.log('running !'))
+const express = require('express')
+const app = express()
+app.listen(8085, '0.0.0.0', () => console.log('running !'))
+const path=require('path')
+app.use(express.static('public'))
+app.get('/', (req, res) => res.sendFile(path.join(__dirname+'/view/index.html')))
 app.get('/search', async (req, res) => {
   let result = await findTorrentAndReturnBestOne(req.query.q)
+  console.log("result", result)
+  if(!Array.isArray(result)) result=[result]
   return res.send(result)
 
 })

@@ -15,18 +15,26 @@
         <button v-on:click="search">Search</button>
       </div>
     </div>
+    <div class="results">
+      <div class="result" v-for="result in results">
+        {{result}}
+      </div>
+    </div>
   </div>
   <script >
     new Vue({
       el:"#app",
       data:{
-        q:''
+        q:'',
+        results:[]
       },
       methods:{
         search:async function(){
           let {q} = this
-          let a = await fetch('http:127.0.0.1:8085/search?q='+q)
-          console.log("search -> a")
+          let a = await fetch('http://127.0.0.1:8085/search?q='+q)
+          a= await a.json()
+          console.log("search -> a",a)
+          this.results=a
         }
       }
 })

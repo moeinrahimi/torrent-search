@@ -4,6 +4,7 @@
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
+    "ejs": "^3.0.2",
     "express": "^4.17.1",
     "torrent-indexer": "^1.2.0"
   }
