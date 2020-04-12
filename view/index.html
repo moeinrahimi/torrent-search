@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.js"></script>
+
+</head>
+<body >
+  <div id="app">
+    <div class="searchArea">
+      <div class="search">
+        <input type="text" v-model="q">
+        <button v-on:click="search">Search</button>
+      </div>
+    </div>
+  </div>
+  <script >
+    new Vue({
+      el:"#app",
+      data:{
+        q:''
+      },
+      methods:{
+        search:async function(){
+          let {q} = this
+          let a = await fetch('http:127.0.0.1:8085/search?q='+q)
+          console.log("search -> a")
+        }
+      }
+})
+  </script>
+</body>
+</html>

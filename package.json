@@ -1,0 +1,10 @@
+{
+  "name": "r",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "torrent-indexer": "^1.2.0"
+  }
+}
